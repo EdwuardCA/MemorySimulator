@@ -34,14 +34,14 @@
                             <label class="block text-sm font-medium text-slate-600 mb-1">Bloques de Memoria (KB)</label>
                             <input type="text" id="memoriaInput"
                                 class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition"
-                                placeholder="Ej: 100, 500, 200, 300" value="100, 500, 200, 300, 600">
+                                value="100, 500, 200, 300, 600">
                         </div>
 
                         <div>
                             <label class="block text-sm font-medium text-slate-600 mb-1">Lista de Procesos (KB)</label>
                             <input type="text" id="procesosInput"
                                 class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition"
-                                placeholder="Ej: 212, 417, 112" value="212, 417, 112, 426">
+                                value="212, 417, 112, 426">
                         </div>
 
                         <div class="grid grid-cols-1 gap-2 pt-2">
@@ -76,15 +76,15 @@
                         <i class="fas fa-info-circle mr-2"></i> Cómo usar
                     </h2>
                     <ul class="text-sm text-blue-700 space-y-2 list-disc list-inside">
-                        <li>Introduce los <b>Bloques</b> (espacios físicos de la RAM).</li>
-                        <li>Introduce los <b>Procesos</b> (programas que quieren entrar).</li>
-                        <li>Elige un <b>Algoritmo</b> para ver cómo se reparten.</li>
-                        <li>Observa el <b>Log</b> para entender la lógica de cada decisión.</li>
+                        <li>Introduce los <b>Bloques</b>.</li>
+                        <li>Introduce los <b>Procesos</b>.</li>
+                        <li>Elige un <b>Algoritmo</b>.</li>
                     </ul>
                 </div>
             </div>
 
             <div class="lg:col-span-8 space-y-6">
+
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 min-h-[500px] flex flex-col">
                     <div class="flex justify-between items-center mb-6">
                         <h2 class="text-lg font-semibold text-slate-700 flex items-center">
@@ -97,7 +97,7 @@
                     <div id="memoriaVisual"
                         class="flex flex-wrap gap-4 items-start custom-scrollbar overflow-x-auto pb-4 flex-grow">
                         <div class="w-full text-center py-20 text-slate-400 italic">
-                            Define la memoria y pulsa un algoritmo para iniciar la simulación...
+                            Define la memoria e inicia la simulación...
                         </div>
                     </div>
 
@@ -107,7 +107,7 @@
 
                     <div class="mt-8 border-t border-slate-50 pt-6">
                         <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-4">Análisis de
-                            Asignación (Paso a Paso)</h3>
+                            Asignación</h3>
                         <div id="processLog" class="space-y-3 max-h-60 overflow-y-auto custom-scrollbar pr-2">
                         </div>
                     </div>
@@ -120,7 +120,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div>
                             <h3 class="text-blue-400 font-bold mb-2">First Fit</h3>
-                            <p class="text-sm leading-relaxed">El más rápido. Busca el primer hueco disponible.</p>
+                            <p class="text-sm leading-relaxed">Asigna el proceso al primer hueco donde quepa.</p>
                         </div>
                         <div>
                             <h3 class="text-emerald-400 font-bold mb-2">Best Fit</h3>
@@ -128,9 +128,48 @@
                         </div>
                         <div>
                             <h3 class="text-indigo-400 font-bold mb-2">Worst Fit</h3>
-                            <p class="text-sm leading-relaxed">Asigna el bloque más grande para dejar espacio sobrante
-                                útil.</p>
+                            <p class="text-sm leading-relaxed">Asigna el proceso al bloque más grande disponible.</p>
                         </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                    <h2 class="text-xl font-bold text-slate-800 mb-6 flex items-center">
+                        <i class="fas fa-balance-scale mr-3 text-blue-500"></i> Comparativa Directa
+                    </h2>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-sm">
+                            <thead>
+                                <tr class="text-slate-400 uppercase tracking-wider border-b border-slate-100">
+                                    <th class="pb-3 font-bold">Característica</th>
+                                    <th class="pb-3 font-bold text-blue-600 text-center">Best Fit</th>
+                                    <th class="pb-3 font-bold text-indigo-600 text-center">Worst Fit</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-slate-600 divide-y divide-slate-50">
+                                <tr>
+                                    <td class="py-4 font-semibold">Objetivo Principal</td>
+                                    <td class="py-4 text-center">Maximizar el uso de bloques pequeños</td>
+                                    <td class="py-4 text-center">Evitar fragmentos inútiles muy pequeños</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4 font-semibold">Espacio Sobrante</td>
+                                    <td class="py-4 text-center text-red-500">Mínimo (Inutilizable)</td>
+                                    <td class="py-4 text-center text-emerald-500">Máximo (Apto para nuevos procesos)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4 font-semibold">Velocidad</td>
+                                    <td class="py-4 text-center italic">Lenta (Requiere búsqueda óptima)</td>
+                                    <td class="py-4 text-center italic">Lenta (Requiere búsqueda máxima)</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4 font-semibold">Riesgo</td>
+                                    <td class="py-4 text-center">Genera fragmentación externa minúscula</td>
+                                    <td class="py-4 text-center">Agota los bloques grandes rápidamente</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -147,10 +186,6 @@
                     <p class="text-slate-700 font-bold flex items-center justify-center md:justify-start">
                         <i class="fas fa-paw mr-2 text-orange-500"></i> Jaguars
                     </p>
-                </div>
-                <div>
-                    <p class="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-1">Materia</p>
-                    <p class="text-slate-700 font-medium">Sistemas Operativos</p>
                 </div>
                 <div>
                     <p class="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-1">Materia</p>
