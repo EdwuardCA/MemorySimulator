@@ -7,7 +7,7 @@ Este proyecto fue desarrollado por el **Grupo A**:
 * **Luis Edwuard Chay Ascorra**
 * **David Morales Guerrero**
 * **Giovana Ruby Diaz Anduze**
-* **Alexander Fabrizio Rodriguez Pérez**
+
 
 ---
 
