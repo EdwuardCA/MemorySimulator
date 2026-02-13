@@ -36,4 +36,4 @@ Este proyecto fue desarrollado por el **Grupo A**:
 ## 📄 Licencia e Institución
 Proyecto académico desarrollado por **TecSoft** para el **Instituto Tecnológico de Software**.
 
-© 2026 Simulador algoritmos Best Fit y Worst Fit - Trabajo Académico.
+© 2026 Simulador algoritmos Best Fit y Worst Fit - Trabajo Académico..
